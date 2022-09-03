@@ -64,7 +64,7 @@ class CalcBloc extends  Bloc<CalcEvent, CalcState>{
         firstValue: '0',
         mathResult: '0',
         secondValue: '0',
-        operation: '+'
+        operation: ''
     );
   }
 
@@ -80,8 +80,24 @@ class CalcBloc extends  Bloc<CalcEvent, CalcState>{
           mathResult: '${num1 + num2}'
         );
       break;
-
-      default:
+      case '-':
+        yield state.copyWith(
+          secondValue: state.mathResult,
+          mathResult: '${num1 - num2}'
+        );
+      break;
+      case 'x':
+        yield state.copyWith(
+            secondValue: state.mathResult,
+            mathResult: '${num1 * num2}'
+        );
+        break;
+      case '/':
+        yield state.copyWith(
+            secondValue: state.mathResult,
+            mathResult: '${num1 / num2}'
+        );
+        break;      default:
         yield state;
     }
   }
