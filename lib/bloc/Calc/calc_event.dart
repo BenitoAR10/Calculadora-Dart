@@ -10,3 +10,16 @@ class AddNumber extends CalcEvent{
   AddNumber(this.number);   //arguemento obligatorio
 }
 
+class ChangeSing extends CalcEvent{}
+
+class Delete extends CalcEvent{}
+
+
+class MathOperation extends CalcEvent{
+  final String operation;
+
+  MathOperation(this.operation);
+}
+
+class ResultOperation extends CalcEvent{}
+

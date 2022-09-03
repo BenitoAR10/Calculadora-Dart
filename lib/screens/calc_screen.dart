@@ -1,6 +1,6 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'package:calculadora/bloc/Calc/calc_bloc.dart';
 import 'package:calculadora/widgets/calc_button.dart';
 import '../widgets/results.dart';
@@ -39,17 +39,17 @@ class CalcScreen extends StatelessWidget {
                     CalcButton(
                       text: '+/-',
                       bgColor: Color(0xffA5A5A5),
-                      onPressed: () => print('+/-'),
+                      onPressed: () => calcBloc.add(ChangeSing()),
                     ),
                     CalcButton(
                       text: 'DEL',
                       bgColor: Color(0xffA5A5A5),
-                      onPressed: () => print('DEL'),
+                      onPressed: () => calcBloc.add(Delete()),
                     ),
                     CalcButton(
                       text: '/',
                       bgColor: Color(0xffF0A23B),
-                      onPressed: () => print('/'),
+                      onPressed: () => calcBloc.add(MathOperation('/')),
                     ),
                   ],
                 ),
@@ -70,9 +70,9 @@ class CalcScreen extends StatelessWidget {
                       onPressed: () => calcBloc.add(AddNumber('9')),
                     ),
                     CalcButton(
-                      text: 'X',
+                      text: 'x',
                       bgColor: Color(0xffF0A23B),
-                      onPressed: () => print('X'),
+                      onPressed: () => calcBloc.add(MathOperation('x')),
                     ),
                   ],
                 ),
@@ -82,20 +82,20 @@ class CalcScreen extends StatelessWidget {
                   children: [
                     CalcButton(
                       text: '4',
-                      onPressed: () => print('4'),
+                      onPressed: () => calcBloc.add(AddNumber('4')),
                     ),
                     CalcButton(
                       text: '5',
-                      onPressed: () => print('5'),
+                      onPressed: () => calcBloc.add(AddNumber('5')),
                     ),
                     CalcButton(
                       text: '6',
-                      onPressed: () => print('6'),
+                      onPressed: () => calcBloc.add(AddNumber('6')),
                     ),
                     CalcButton(
                       text: '-',
                       bgColor: Color(0xffF0A23B),
-                      onPressed: () => print('-'),
+                      onPressed: () => calcBloc.add(MathOperation('-')),
                     ),
                   ],
                 ),
@@ -105,20 +105,20 @@ class CalcScreen extends StatelessWidget {
                   children: [
                     CalcButton(
                       text: '1',
-                      onPressed: () => print('1'),
+                      onPressed: () => calcBloc.add(AddNumber('1')),
                     ),
                     CalcButton(
                       text: '2',
-                      onPressed: () => print('2'),
+                      onPressed: () => calcBloc.add(AddNumber('2')),
                     ),
                     CalcButton(
                       text: '3',
-                      onPressed: () => print('3'),
+                      onPressed: () => calcBloc.add(AddNumber('3')),
                     ),
                     CalcButton(
                       text: '+',
                       bgColor: Color(0xffF0A23B),
-                      onPressed: () => print('+'),
+                      onPressed: () => calcBloc.add(MathOperation('+')),
                     ),
                   ],
                 ),
@@ -129,16 +129,16 @@ class CalcScreen extends StatelessWidget {
                     CalcButton(
                       text: '0',
                       big: true,
-                      onPressed: () => print('0'),
+                      onPressed: () => calcBloc.add(AddNumber('0')),
                     ),
                     CalcButton(
                       text: '.',
-                      onPressed: () => print('.'),
+                      onPressed: () => calcBloc.add(AddNumber('.')),
                     ),
                     CalcButton(
                       text: '=',
                       bgColor: Color(0xffF0A23B),
-                      onPressed: () => print('='),
+                      onPressed: () => calcBloc.add((ResultOperation())),
                     ),
                   ],
                 )

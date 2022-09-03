@@ -14,6 +14,13 @@ class Results extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<CalcBloc, CalcState>(
       builder: (context, state) {
+
+        if (state.firstValue == '0' && state.secondValue == '0'){
+          return MainResultText(
+              text: state.mathResult
+          );
+        }
+
         return Column(
           children: [
             SubResult(text: state.firstValue),
