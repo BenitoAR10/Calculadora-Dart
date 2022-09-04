@@ -18,7 +18,7 @@ class CalcBloc extends  Bloc<CalcEvent, CalcState>{
     CalcEvent event,
   ) async*{
 
-    //limpiar todo
+    //limpiar pantalla
     if(event  is ResetAC){
       yield* this._resetAC();        //yield* emite el valor que el stream emite
 
@@ -54,9 +54,14 @@ class CalcBloc extends  Bloc<CalcEvent, CalcState>{
       //calcular resultado
     }else if(event is ResultOperation){
       yield* _mathResult();
-    }
-
-
+      //control punto decimal
+    }/*else if(event is AddNumber){
+      yield state.copyWith(
+        mathResult: state.mathResult.contains('.')
+                     ?
+                     : ,
+      );
+    }*/
   }
 
   Stream<CalcState>_resetAC() async*{
@@ -97,7 +102,9 @@ class CalcBloc extends  Bloc<CalcEvent, CalcState>{
             secondValue: state.mathResult,
             mathResult: '${num1 / num2}'
         );
-        break;      default:
+        break;
+
+        default:
         yield state;
     }
   }

@@ -9,10 +9,10 @@ class CalcState{
 
   CalcState({
     //estado inicial con valores determinados
-    this.mathResult = '30',
-    this.firstValue = '10',
-    this.secondValue = '20',
-    this.operation = '+'
+    this.mathResult = '0',
+    this.firstValue = '',
+    this.secondValue = '',
+    this.operation = ''
   });
 
   CalcState copyWith({        //copyWith regresa un nuevo estado de la misma clase calcstate
